@@ -1,10 +1,8 @@
 const Client = require("../Client");
 const CompteBancaire = require("../CompteBancaire");
-const CreditException = require("../exception/CreditException");
-const DebitException = require("../exception/DebitException");
 const GlobalException = require("../exception/GlobalException");
 
-describe("Tests de la classe CompteBancaire", () => {
+describe("Tests de la classe Client", () => {
   let client;
   
   beforeEach(() => {
@@ -32,6 +30,7 @@ describe("Tests de la classe CompteBancaire", () => {
 
   test("Test compte non trouvé", () => {
     expect(() => client.verifierSiCompteValide(5)).toThrow(GlobalException);  
+    expect(() => client.verifierSiCompteValide(5)).toThrow("Compte non trouvé");  
   });
 
   test("Test compte trouvé mais invalide", () => {
