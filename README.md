@@ -19,4 +19,4 @@ npm run test
 
 Le projet est configuré avec une intégration continue qui exécute automatiquement les tests à chaque push. Voir le fichier `.github/workflows/test-ci.yml` pour plus de détails.
 
-![CI-CD screen](image.png)
+![CI-CD screen](image-1.png)
