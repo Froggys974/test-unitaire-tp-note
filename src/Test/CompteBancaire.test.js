@@ -32,11 +32,13 @@ describe("Tests de la classe CompteBancaire", () => {
 
   test("Test crédit montant négatif", () => {
     expect(() => compteBancaire.credit(-50)).toThrow(CreditException);  
+    expect(() => compteBancaire.credit(-50)).toThrow("Mauvais montant");  
   });
 
   test("Test crédit sur compte invalide", () => {
     compteBancaire.save(1500);
     expect(() => compteBancaire.credit(100)).toThrow(CreditException);  
+    expect(() => compteBancaire.credit(100)).toThrow("Le compte bancaire n'est pas dans un état correct");  
   });
 
   test("Test crédit supérieur à la limite du compte", () => {
@@ -56,11 +58,13 @@ describe("Tests de la classe CompteBancaire", () => {
 
   test("Test débit montant négatif", () => {
     expect(() => compteBancaire.debit(-50)).toThrow(DebitException);  
+    expect(() => compteBancaire.debit(-50)).toThrow("Mauvais montant");  
   });
 
   test("Test débit sur compte invalide", () => {
     compteBancaire.save(1500);
     expect(() => compteBancaire.debit(125)).toThrow(DebitException);  
+    expect(() => compteBancaire.debit(125)).toThrow("Le compte bancaire n'est pas dans un état correct");  
   });
   
   test("Test débit inférieur à la limite du compte", () => {
